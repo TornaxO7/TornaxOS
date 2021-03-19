@@ -27,6 +27,6 @@ void kernel_main()
     terminal_initialize();
 
     terminal_puts("Test");
-    _terminal_error_msg("KERNEL PANIC");
+    _terminal_error_puts("KERNEL PANIC");
     terminal_puts("I use arch btw");
 }

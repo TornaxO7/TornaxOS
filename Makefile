@@ -42,7 +42,7 @@ default: $(OBJ_LINK_LIST)
 	# linking
 	$(CC) -T $(SRC)/linker.ld -o $(BUILDD)/$(OSNAME).bin -ffreestanding -O2 -nostdlib \
 		$(BUILDD)/boot.o $(BUILDD)/kernel.o -lgcc
-	$(CC) -o $(BUILDD)/$(OSNAME).bin $(OBJ_LINK_LIST) -nostdlib -lgcc
+	#$(CC) -o $(BUILDD)/$(OSNAME).bin $(OBJ_LINK_LIST) -nostdlib -lgcc
 
 	# preparing for qemu
 	cp $(SRC)/grub.cfg $(ISOD)/boot/grub/

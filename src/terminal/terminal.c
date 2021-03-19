@@ -11,7 +11,7 @@ struct Terminal term;
 /* ==============
  * Functions
  * ============== */
-void _terminal_error_msg(const char * msg)
+void _terminal_error_puts(const char * msg)
 {
     // print out the '[ERROR] ' sign
     _terminal_setcolor(VGA_COLOR_RED);
