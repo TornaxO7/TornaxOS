@@ -1,5 +1,5 @@
 .section .text
-    
+
     .set MAGIC,    0x1BADB002
     .set FLAGS,    0x0
     .set CHECKSUM, -(MAGIC + FLAGS)
@@ -16,7 +16,13 @@
 
         mov $stack_top,  %esp
 
+        pushl $0
+        popf
+        pushl %ebx
+        
         call kernel_main
+loop:   hlt
+        jmp loop
 
 .section .data
     
