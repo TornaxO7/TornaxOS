@@ -4,7 +4,7 @@
     .set FLAGS,    0x0
     .set CHECKSUM, -(MAGIC + FLAGS)
 
-    .multiboot_header:
+    .section .multiboot_header:
         .align 4
         .long MAGIC   
         .long FLAGS
