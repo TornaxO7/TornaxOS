@@ -1,7 +1,7 @@
 .section .text
 
     .set MAGIC,    0x1BADB002
-    .set FLAGS,    0x0
+    .set FLAGS,    0b10
     .set CHECKSUM, -(MAGIC + FLAGS)
 
     .section .multiboot_header:
@@ -14,15 +14,9 @@
     .type _start @function
     _start:
 
+        // Initialize the stack
         mov $stack_top,  %esp
-
-        pushl $0
-        popf
-        pushl %ebx
-        
         call kernel_main
-loop:   hlt
-        jmp loop
 
 .section .data
     
