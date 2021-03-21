@@ -11,15 +11,6 @@
     .long FLAGS
     .long CHECKSUM
 
-/* ==========
- * Stack
- * ========== */
-.section .bss
-    .align 16
-    stack_top:
-        .skip 8192
-    stack_bottom:
-
 /* =================
  * Main starter
  * ================= */
@@ -30,3 +21,13 @@ _start:
     // setup the stack
     mov $stack_bottom, %esp
     call kernel_main
+
+/* ==========
+ * Stack
+ * ========== */
+.section .bss
+    .align 16
+    stack_top:
+        .skip 8192
+    stack_bottom:
+
