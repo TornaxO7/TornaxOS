@@ -5,6 +5,7 @@
  * Libraries
  * ============== */
 #include <stdint.h>
+#include <stddef.h>
 
 /* ==============
  * Constants
@@ -28,20 +29,21 @@ enum VGA_COLOR {
     VGA_COLOR_WHITE,
 };
 
-static const uint16_t VGA_MAX_WIDTH = 80;
-static const uint16_t VGA_MAX_HEIGHT = 40;
+static const size_t VGA_MAX_WIDTH = 80;
+static const size_t VGA_MAX_HEIGHT = 25;
 
 /* ==============
  * Functions
  * ============== */
 // for general information:
 //  https://en.wikipedia.org/wiki/VGA_text_mode
-int8_t vga_get_color(int8_t fg, int8_t bg, int8_t blink)
+static inline uint8_t vga_get_color(enum VGA_COLOR fg, enum VGA_COLOR bg)
 {
-    return ((blink & 0b1) << 7) | ((bg & 0b111) << 4) | (fg & 0b1111);
+    return fg | bg << 4;
+    //return ((blink & 0b1) << 7) | ((bg & 0b111) << 4) | (fg & 0b1111);
 }
 
-uint16_t vga_get_char(char character, int8_t color)
+static inline uint16_t vga_get_char(unsigned char character, uint8_t color)
 {
     return (uint16_t) color << 8 | (uint16_t) character;
 }

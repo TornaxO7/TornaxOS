@@ -7,7 +7,7 @@ SECTIONS
      *  1. Header must be withing the first 8192 bytes of the OS image
      *  2. Must be longword (32-bit) aligned
      */
-    .text ALIGN(0x0) :
+    .text :
     {
         *(.multiboot_header)
         *(.text)

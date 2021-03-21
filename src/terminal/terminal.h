@@ -5,15 +5,16 @@
  * Libraries
  * ============== */
 #include "../vga.c"
+#include <stddef.h>
 
 /* ============
  * Structs
  * ============ */
 struct Terminal {
-    uint16_t column;
-    uint16_t row;
-    int8_t color;
-    uint16_t * buffer;
+    size_t     column;  // at which column we're currently
+    size_t     row;     // at which row we're currently
+    uint8_t    color;   // The color code (foreground and background)
+    uint16_t * buffer;  // The VGA buffer
 };
 
 /* ==============
