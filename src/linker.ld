@@ -1,4 +1,5 @@
 ENTRY(_start)
+
 SECTIONS
 {
     /* The mutliboot header */
@@ -19,6 +20,7 @@ SECTIONS
 
     .bss :
     {
+        *(COMMON)
         *(.bss)
     }
 }
