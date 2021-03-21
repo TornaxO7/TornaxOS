@@ -19,10 +19,10 @@ void __terminal_initialize()
     terminal.buffer = (uint16_t *) 0xB8000;
 
     // add some placeholders
-    for (size_t row = 0; row < VGA_MAX_HEIGHT; row++)
-        for (size_t column = 0; column < VGA_MAX_WIDTH; column++)
-            terminal.buffer [row * VGA_MAX_WIDTH + column] =
-                vga_get_char(' ', terminal.color);
+    //for (size_t row = 0; row < VGA_MAX_HEIGHT; row++)
+    //    for (size_t column = 0; column < VGA_MAX_WIDTH; column++)
+    //        terminal.buffer [row * VGA_MAX_WIDTH + column] =
+    //            vga_get_char(' ', terminal.color);
 }
 
 void terminal_putchar(char character)

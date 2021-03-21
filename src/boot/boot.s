@@ -1,7 +1,9 @@
 .section .text
 
+    .set ALIGN, 1 << 0
+    .set MEMINFO, 1 << 1
     .set MAGIC,     0x1BADB002
-    .set FLAGS,     0b00
+    .set FLAGS,     ALIGN | MEMINFO
     .set CHECKSUM,  -(MAGIC + FLAGS)
 
     .section .multiboot_header:
@@ -16,11 +18,10 @@
 
         // Initialize the stack
         mov $stack_top,  %esp
-        cli
         call kernel_main
-
-loop: hlt
-        jmp loop
+        cli
+    1:  hlt
+        jmp 1
 
 .section .data
     

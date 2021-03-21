@@ -37,13 +37,13 @@ static const size_t VGA_MAX_HEIGHT = 25;
  * ============== */
 // for general information:
 //  https://en.wikipedia.org/wiki/VGA_text_mode
-static inline uint8_t vga_get_color(enum VGA_COLOR fg, enum VGA_COLOR bg)
+uint8_t vga_get_color(enum VGA_COLOR fg, enum VGA_COLOR bg)
 {
     return fg | bg << 4;
     //return ((blink & 0b1) << 7) | ((bg & 0b111) << 4) | (fg & 0b1111);
 }
 
-static inline uint16_t vga_get_char(unsigned char character, uint8_t color)
+uint16_t vga_get_char(char character, uint8_t color)
 {
     return (uint16_t) color << 8 | (uint16_t) character;
 }
