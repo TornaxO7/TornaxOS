@@ -1,10 +1,17 @@
-#include <stdint.h>
+/* ===============
+ * Includings
+ * =============== */
+#include "terminal/terminal.c"
+#include "terminal/terminal.h"
 
 /* =========================
  * THE MAIN KERNEL FILE
  * ========================= */
 void kernel_main()
 {
-    volatile uint16_t * ptr = (volatile uint16_t *) 0xB8000;
-    *ptr = 'x';
+
+    char buffer[] = "Buffer test";
+
+    __terminal_initialize();
+    terminal_printf("%s", buffer);
 }

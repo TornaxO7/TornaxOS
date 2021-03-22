@@ -22,12 +22,5 @@ _start:
     mov $stack_bottom, %esp
     call kernel_main
 
-/* ==========
- * Stack
- * ========== */
-.section .bss
-    .align 16
-    stack_top:
-        .skip 8192
-    stack_bottom:
-
+    cli
+    hlt
